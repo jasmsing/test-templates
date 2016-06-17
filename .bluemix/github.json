@@ -1,0 +1,37 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Hacked github",
+	"longDescription": "My hacked github schema",
+	"type": "object",
+	"properties": {
+		"foo": {
+			"type": "string"
+		},
+		"bar": {
+			"type": "string",
+			"default": "honk"
+		},
+		"baz": {
+			"title": "baz title",
+			"description": "baz desc",
+			"type": "string",
+			"default": "blub"
+		},
+		"quux": {
+			"title": "quux title",
+			"description": "quux desc",
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"required": [
+		"foo",
+		"bar"
+	],
+	"form": [
+		{
+			"type": "validator",
+			"url": "https://mamacdon.github.io/toolchain-templates/validator_assert/helper.html"
+		}
+	]
+}

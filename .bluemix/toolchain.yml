@@ -1,0 +1,16 @@
+---
+#
+# Note custom schemas are used here to remove the validators for github and pipeline.
+# We're not interested in testing validation.
+#
+name: "assert"
+description: "Uses a hacked github validator that returns errors if correct data not sent."
+version: 0.1
+required:
+ - repo
+
+repo:
+  service_id: githubpublic
+  schema: github.json
+  parameters:
+    baz: "from parameters :)"
