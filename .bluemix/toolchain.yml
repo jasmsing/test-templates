@@ -1,0 +1,48 @@
+---
+#
+# Note custom schemas are used here to remove the validators for github and pipeline.
+# We're not interested in testing validation.
+#
+name: "Mustache tester"
+description: "Testing ye old mustache"
+version: 0.1
+required:
+ - deploy
+ - repo
+
+toolchain:
+  name: "initial-name"
+
+repo:
+  service_id: githubpublic
+  schema: github.json
+  parameters:
+    repo_name: "da name, {{repo.parameters.repo_url}}"
+    repo_url: "da url"
+    type: clone
+    has_issues: true
+
+build:
+  schema: deploy.json
+  service_id: pipeline
+  parameters:
+    magic:
+      baseName: "{{baseName}}"
+      description: "{{description}}"
+      name: "{{name}}"
+      organization: "{{organization}}"
+      region: "{{region}}"
+      space: "{{space}}"
+      timestamp: "{{timestamp}}"
+    ref:
+      simple: "{{repo.parameters.repo_url}}"
+      expr:   "pre-{{repo.parameters.repo_url}}-post"
+      to-ref: "{{repo.parameters.repo_name}}"
+    context:
+      fizz: "{{fizz}}"
+
+# TODO test refs inside a service-category
+# deploy:
+#   schema: deploy.json
+#   service-category: pipeline
+#   parameters:
