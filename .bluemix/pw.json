@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Password field test",
+    "description": "Testing password field",
+    "longDescription": "A service that visualizes a string field using a password input in its form.",
+    "type": "object",
+    "properties": {
+        "myfield": {
+            "title": "A secret field",
+            "type": "string"
+        }
+    },
+    "form": [{
+        "key": "myfield",
+        "type": "password"
+    }]
+}
