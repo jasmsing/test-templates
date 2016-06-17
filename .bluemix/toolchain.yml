@@ -1,0 +1,7 @@
+---
+name: "Build your own {{timestamp}}"
+description: "This toolchain has {{timestamp}}, {{timestamp}}, {{timestamp}}, {{timestamp}}"
+version: 0.1
+toolchain:
+  hello: "{{timestamp}}"
+  there: "{{timestamp}}"
