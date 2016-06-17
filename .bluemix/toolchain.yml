@@ -1,0 +1,9 @@
+---
+name: "Build your own toolchain"
+description: "This toolchain has made up service ids that are bogus.\n\nTo get started, click **Create**."
+version: 0.1
+
+hurray:
+  service_id: nbcnbvnx
+whee:
+  service_id: ashjaksjgkasjgkas
