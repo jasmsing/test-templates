@@ -1,0 +1,59 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Deploy Stage",
+	"description": "Fake schema",
+	"longDescription": "Fake schema for testing",
+	"type": "object",
+	"properties": {
+		"magic-var-baseName":     { "type": "string" },
+		"magic-var-description":  { "type": "string" },
+		"magic-var-name":         { "type": "string" },
+		"magic-var-organization": { "type": "string" },
+		"magic-var-region":       { "type": "string" },
+		"magic-var-space":        { "type": "string" },
+		"magic-var-timestamp":    { "type": "string" },
+		"ref-expr":               { "type": "string" },
+		"ref-simple":             { "type": "string" },
+		"ref-to-ref":             { "type": "string" }
+	},
+	"required": [],
+	"__form": [{
+		"type": "validator",
+		"url": "/devops/setup/bm-helper/helper.html"
+	}, {
+		"type": "text",
+		"readonly": false,
+		"title": "App Name",
+		"key": "prod-app-name"
+	}, {
+		"type": "table",
+		"columnCount": 4,
+		"widths": ["15%", "28%", "28%", "28%"],
+		"items": [{
+			"type": "label",
+			"title": ""
+		}, {
+			"type": "label",
+			"title": "Region"
+		}, {
+			"type": "label",
+			"title": "Organization"
+		}, {
+			"type": "label",
+			"title": "Space"
+		}, {
+			"type": "label",
+			"title": "Prod Stage"
+		}, {
+			"type": "select",
+			"key": "prod-region"
+		}, {
+			"type": "select",
+			"key": "prod-organization"
+		}, {
+			"type": "select",
+			"key": "prod-space",
+			"readonly": false
+		}]
+	}]
+}

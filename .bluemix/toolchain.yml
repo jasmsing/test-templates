@@ -1,0 +1,50 @@
+---
+name: "Mustache tester"
+description: "Testing ye old mustache"
+version: 0.1
+required:
+ - deploy
+ - repo
+
+toolchain:
+  name: "initial-name-{{timestamp}}"
+
+repo:
+  service_id: githubpublic
+  parameters:
+    repo_name: "repo_name_{{repo.parameters.repo_url}}"
+    repo_url: "repo_url"
+    type: clone
+    has_issues: true
+
+sample-build:
+  service_id: pipeline
+  parameters:
+    name: "fake pipeline"
+    # ui-pipeline: true
+    # configuration:
+    #  content: $file(pipeline.yml)
+    #  env:
+    #   SAMPLE_REPO: "sample-repo"
+    #   CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
+    #   PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
+    #   PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
+    #   PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
+    #  execute: true
+    # services: ["sample-repo"]
+  #hidden: [form, description]
+
+deploy:
+  schema: deploy.json
+  service-category: pipeline
+  parameters:
+    magic-var-baseName: "{{baseName}}"
+    magic-var-description: "{{description}}"
+    magic-var-name: "{{name}}"
+    magic-var-organization: "{{organization}}"
+    magic-var-region: "{{region}}"
+    magic-var-space: "{{space}}"
+    magic-var-timestamp: "{{timestamp}}"
+    ref-simple: "{{repo.parameters.repo_url}}"
+    ref-expr: "pre{{repo.parameters.repo_url}}post"
+    ref-to-ref: "{{repo.parameters.repo_name}}"
