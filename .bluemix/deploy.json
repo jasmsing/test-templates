@@ -1,0 +1,106 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "MicroServices Deploy Stage",
+    "description": "",
+    "longDescription": "The Delivery Pipeline for Devops Services allows you to automate your continuous deployment setup. To avoid conflicts, make sure to use unique application names. We recommend to use a common prefix like your name or initials.",
+    "type": "object",
+    "properties": {
+        "selected-region": {
+            "description": "The bluemix region",
+            "type": "string"
+        },
+        "selected-organization": {
+            "description": "The bluemix org",
+            "type": "string"
+        },
+       "selected-space": {
+            "description": "The bluemix space",
+            "type": "string"
+        },
+        "orders-app-name": {
+            "description": "orders app name",
+            "type": "string"
+        },
+        "catalog-app-name": {
+            "description": "catalog app name",
+            "type": "string"
+        },
+        "ui-app-name": {
+            "description": "ui app name",
+            "type": "string"
+        },
+        "dashboard-app-name": {
+            "description": "dashboard app name",
+            "type": "string"
+        }
+    },
+    "required": [
+      "selected-region", "selected-organization", "selected-space",
+      "orders-app-name",
+      "catalog-app-name",
+      "ui-app-name",
+      "dashboard-app-name"
+    ],
+    "form": [
+       {
+          "type": "validator",
+          "url": "/devops/setup/bm-helper/helper.html"
+       },
+       {
+          "type": "text",
+          "readonly": false,
+          "title": "Orders App Name",
+          "key": "orders-app-name"
+        },
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "Catalog App Name",
+          "key": "catalog-app-name"
+        },
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "UI App Name",
+          "key": "ui-app-name"
+        },
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "Dashboard App Name",
+          "key": "dashboard-app-name"
+        },
+        {
+            "type": "table",
+            "columnCount": 3,
+            "widths": ["33%", "33%", "33%"],
+            "items": [
+                {
+                  "type": "label",
+                  "title": "Region"
+                },
+                {
+                  "type": "label",
+                  "title": "Organization"
+                },
+                {
+                  "type": "label",
+                  "title": "Space"
+                },
+                {
+                  "type": "select",
+                  "key": "selected-region"
+                },
+                {
+                  "type": "select",
+                  "key": "selected-organization"
+                },
+                {
+                  "type": "select",
+                  "key": "selected-space",
+                  "readonly": false
+                }
+            ]
+        }
+    ]
+}
