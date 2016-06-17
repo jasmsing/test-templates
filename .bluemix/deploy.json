@@ -26,8 +26,8 @@
     "form": [
        {
           "type": "validator",
-          "url": "/devops/setup/bm-helper/helper.html"
-       },        
+          "url": "/devops/setup/bm-helper/helper.html_DOESNOTEXIST"
+       },
         {
           "type": "text",
           "readonly": false,
