@@ -1,0 +1,80 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Broken Repo",
+    "description": "broken repo",
+    "longDescription": "Github-type service that remembers authorization for a few seconds, then forgets it.",
+    "type": "object",
+    "properties": {
+        "repo_name": {
+            "title": "New repository name",
+            "type": "string"
+        },
+        "repo_url": {
+            "title": "Source repository URL",
+            "description": "Type the URL of the repository that you are forking, cloning, or linking to.",
+            "type": "string"
+        },
+        "type": {
+            "title": "Repository type",
+            "type": "string",
+            "enum": [
+                "new",
+                "fork",
+                "clone",
+                "link"
+            ]
+        },
+        "has_issues": {
+            "title": "Enable GitHub Issues",
+            "description": "Select this check box to enable GitHub Issues for lightweight issue tracking.",
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "form": [{
+        "type": "validator",
+        "url": "https://mamacdon.github.io/toolchain-templates/validator_auth/helper.html"
+    }, {
+        "type": "selectfieldset",
+        "key": "type",
+        "titleMap": {
+            "new": "New",
+            "fork": "Fork",
+            "link": "Existing",
+            "clone": "Clone"
+        },
+        "items": [{
+            "type": "section",
+            "description": "Create an empty repository.",
+            "items": [
+                "repo_name",
+                "has_issues"
+            ]
+        }, {
+            "type": "section",
+            "description": "Fork the repository that is specified in the Source repository URL field.",
+            "items": [
+                "repo_url"
+            ]
+        }, {
+            "type": "section",
+            "description": "Clone the repository that is specified in the Source repository URL field.",
+            "items": [
+                "repo_name",
+                "repo_url",
+                "has_issues"
+            ]
+        }, {
+            "type": "section",
+            "description": "Link to the repository that is specified in the Source repository URL field.",
+            "items": [
+                "repo_url",
+                "has_issues"
+            ]
+        }]
+    }],
+    "actions": {
+        "create": ["repo_name", "repo_url", "type", "has_issues"],
+        "update": ["repo_url", "has_issues"]
+    }
+}
