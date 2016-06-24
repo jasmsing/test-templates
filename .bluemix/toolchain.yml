@@ -9,6 +9,7 @@ required:
 # Github repos
 sample-repo:
   service_id: githubpublic
+  hidden: [form, description] # hide the default schema I guess
   # parameters:
   #   repo_name: "sample-{{name}}"
   #   repo_url: https://github.com/open-toolchain/node-hello-world
