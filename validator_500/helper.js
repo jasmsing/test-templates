@@ -21,9 +21,9 @@ function receiveMessage(event) {
 	if (event.data) {
 		consoleLog("github.received: " + JSON.stringify(event.data));
 		if (event.data.request === 'authenticate') {
-			respond(event, { statusCode: 500 }, "github.requestAuth Rx: ");
-		} else if (event.data.request === 'validate') {	
-			respond(event, { statusCode: 500 }, "success on github.validateServiceInstance: ");
+			respond(event, { status: "error", description: "This is an error returned from authenticate" }, "github.requestAuth Rx: ");
+		} else if (event.data.request === 'validate') {
+			respond(event, { status: "error", description: "This is an error returned from validate" }, "success on github.validateServiceInstance: ");
 		} else if (event.data.request === 'populate') {
 			var rc = {
 				request: event.data.request,
