@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+/*eslint-env browser*/
+var msg = {
+	"request": "oauth-return",
+	"response": true
+};
+if (window.parent) {
+	// console.log("Returned from OAuth: " + window.opener.location);
+	setTimeout(function() {
+		window.opener.postMessage(msg, "*");
+
+		// set the auth timestamp in local storage for this domain
+		localStorage.setItem("fake.auth.time", Date.now());
+	}, 2000)
+}
+
+function receiveMessage(event) {
+	console.log("data: " + JSON.stringify(event.data) + "\norigin: " + event.origin);
+	if (event.data) {
+		if (event.data.request === 'close') {
+			window.opener.focus();
+			window.close();
+		}
+	}
+}
+
+window.addEventListener("message", receiveMessage, false);
+</script>
+	<title>OAuth return</title>
+</head>
+<body>
+<p>Fake OAuth return page. We will just wait a moment, then send an 'oauth-return' message back to the parent window.</p>
+
+<p>After that, the parent window should respond with a 'close' message and then this window will close itself.</p>
+</body>
+</html>
