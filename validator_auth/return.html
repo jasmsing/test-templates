@@ -32,8 +32,13 @@ window.addEventListener("message", receiveMessage, false);
 	<title>OAuth return</title>
 </head>
 <body>
-<p>Fake OAuth return page. We will just wait a moment, then send an 'oauth-return' message back to the parent window.</p>
+<p>Fake OAuth return page.</p>
 
-<p>After that, the parent window should respond with a 'close' message and then this window will close itself.</p>
+<ol>
+<li>Wait 2 seconds</li>
+<li>Set an auth property <tt>fake.auth.time</tt> in <tt>localStorage</tt>.</li>
+<li>Send an 'oauth-return' message back to the parent window.</li>
+<li>When parent window responds with a 'close' message, this window closes itself.</p>
+<ol>
 </body>
 </html>
