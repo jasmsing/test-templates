@@ -15,7 +15,7 @@
         "type": "password"
     }],
     "actions": {
-        "create": ["repo_name", "repo_url", "type", "has_issues"],
-        "update": ["repo_url", "has_issues"]
+        "create": ["repo_name", "repo_url", "type", "has_issues", "myfield"],
+        "update": ["repo_url", "has_issues", "myfield"]
     }
 }
