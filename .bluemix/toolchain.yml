@@ -1,6 +1,6 @@
 ---
-name: "Password toolchain"
-description: "Fake toolchain to test password fields"
+name: "Toolchain"
+description: "My toolchain template"
 version: 0.1
 required: 
  - sample-repo
@@ -8,11 +8,4 @@ required:
 # Github repos
 sample-repo:
   service_id: githubpublic
-  hidden: [form, description] # hide the default githubpublic schema
 
-#Override githubpublic schema with the local one
-deploy:
-  schema: pw.json
-  service-category: githubpublic
-  parameters:
-    myfield: "initial value"

@@ -1,7 +1,5 @@
-#password
+#slash\branch唉
 
-This toolchain template is used for testing password fields
+Nothing interesting about this template, except that its branch has invalid URI characters in the name.
+For testing character encoding.
 
-To get started, click **Deploy to Bluemix**.
-
-[![Deploy To Bluemix](https://bluemix.net/deploy/button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/open-toolchain/simple-toolchain&branch=password)
