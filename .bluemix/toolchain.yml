@@ -22,7 +22,8 @@ repo:
     type: clone
     has_issues: true
 
-sample-build:
+build:
+  schema: deploy.json
   service_id: pipeline
   parameters:
     magic-var-baseName: "{{baseName}}"
@@ -37,6 +38,7 @@ sample-build:
     ref-to-ref: "{{repo.parameters.repo_name}}"
 
 # TODO test refs inside a service-category
-deploy:
-  schema: deploy.json
-  service-category: pipeline
+# deploy:
+#   schema: deploy.json
+#   service-category: pipeline
+#   parameters:
