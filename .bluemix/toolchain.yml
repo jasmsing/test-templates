@@ -1,4 +1,8 @@
 ---
+#
+# Note custom schemas are used here to remove the validators for github and pipeline.
+# We're not interested in testing validation.
+#
 name: "Mustache tester"
 description: "Testing ye old mustache"
 version: 0.1
@@ -10,6 +14,7 @@ toolchain:
   name: "initial-name-{{timestamp}}"
 
 repo:
+  schema: github.json
   service_id: githubpublic
   parameters:
     repo_name: "repo_name_{{repo.parameters.repo_url}}"
