@@ -5,16 +5,12 @@
 	"longDescription": "Fake schema for testing",
 	"type": "object",
 	"properties": {
-		"magic-var-baseName":     { "type": "string" },
-		"magic-var-description":  { "type": "string" },
-		"magic-var-name":         { "type": "string" },
-		"magic-var-organization": { "type": "string" },
-		"magic-var-region":       { "type": "string" },
-		"magic-var-space":        { "type": "string" },
-		"magic-var-timestamp":    { "type": "string" },
-		"ref-expr":               { "type": "string" },
-		"ref-simple":             { "type": "string" },
-		"ref-to-ref":             { "type": "string" }
+		"magic": {
+			"type": "object"
+		},
+		"ref": {
+			"type": "object"
+		}
 	},
 	"required": []
 }

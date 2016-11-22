@@ -26,20 +26,18 @@ build:
   schema: deploy.json
   service_id: pipeline
   parameters:
-    magic-var-baseName: "{{baseName}}"
-    magic-var-description: "{{description}}"
-    magic-var-name: "{{name}}"
-    magic-var-organization: "{{organization}}"
-    magic-var-region: "{{region}}"
-    magic-var-space: "{{space}}"
-    magic-var-timestamp: "{{timestamp}}"
+    magic:
+      baseName: "{{baseName}}"
+      description: "{{description}}"
+      name: "{{name}}"
+      organization: "{{organization}}"
+      region: "{{region}}"
+      space: "{{space}}"
+      timestamp: "{{timestamp}}"
     ref:
       simple: "{{repo.parameters.repo_url}}"
       expr:   "pre-{{repo.parameters.repo_url}}-post"
       to-ref: "{{repo.parameters.repo_name}}"
-    #ref-simple: "{{repo.parameters.repo_url}}"
-    #ref-expr: "pre-{{repo.parameters.repo_url}}-post"
-    #ref-to-ref: "{{repo.parameters.repo_name}}"
 
 # TODO test refs inside a service-category
 # deploy:
