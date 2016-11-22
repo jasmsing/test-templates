@@ -38,6 +38,8 @@ build:
       simple: "{{repo.parameters.repo_url}}"
       expr:   "pre-{{repo.parameters.repo_url}}-post"
       to-ref: "{{repo.parameters.repo_name}}"
+    context:
+      fizz: "{{fizz}}"
 
 # TODO test refs inside a service-category
 # deploy:
