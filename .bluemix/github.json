@@ -12,14 +12,10 @@
             "default": "honk"
         },
         "baz": {
-            "title": "baz title",
-            "description": "baz desc",
             "type": "string",
             "default": "blub"
         },
         "quux": {
-            "title": "quux title",
-            "description": "quux desc",
             "type": "boolean",
             "default": true
         }
@@ -32,6 +28,22 @@
         {
             "type": "validator",
             "url": "https://mamacdon.github.io/toolchain-templates/validator_assert/helper.html"
+        },
+        {
+            "type": "text",
+            "key": "foo"
+        },
+        {
+            "type": "text",
+            "key": "bar"
+        },
+        {
+            "type": "text",
+            "key": "baz"
+        },
+        {
+            "type": "checkbox",
+            "key": "quux"
         }
     ]
 }
