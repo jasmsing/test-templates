@@ -1,16 +1,18 @@
 ---
-#
-# Note custom schemas are used here to remove the validators for github and pipeline.
-# We're not interested in testing validation.
-#
 name: "assert"
 description: "Uses a hacked github validator that returns errors if correct data not sent."
 version: 0.1
 required:
  - repo
+ - repohack
 
 repo:
   service_id: githubpublic
+  hidden: [form, description] # hide the default schema I guess
+
+#Override githubpublic schema with the validator
+repohack:
   schema: github.json
+  service-category: githubpublic
   parameters:
     baz: "from parameters :)"

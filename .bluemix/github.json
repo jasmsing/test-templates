@@ -3,27 +3,7 @@
 	"title": "Hacked github",
 	"longDescription": "My hacked github schema",
 	"type": "object",
-	"properties": {
-		"foo": {
-			"type": "string"
-		},
-		"bar": {
-			"type": "string",
-			"default": "honk"
-		},
-		"baz": {
-			"title": "baz title",
-			"description": "baz desc",
-			"type": "string",
-			"default": "blub"
-		},
-		"quux": {
-			"title": "quux title",
-			"description": "quux desc",
-			"type": "boolean",
-			"default": true
-		}
-	},
+	"properties": {},
 	"required": [
 		"foo",
 		"bar"
@@ -32,6 +12,27 @@
 		{
 			"type": "validator",
 			"url": "https://mamacdon.github.io/toolchain-templates/validator_assert/helper.html"
+		},
+		{
+			"foo": {
+				"type": "string"
+			},
+			"bar": {
+				"type": "string",
+				"default": "honk"
+			},
+			"baz": {
+				"title": "baz title",
+				"description": "baz desc",
+				"type": "string",
+				"default": "blub"
+			},
+			"quux": {
+				"title": "quux title",
+				"description": "quux desc",
+				"type": "boolean",
+				"default": true
+			}
 		}
 	]
 }
