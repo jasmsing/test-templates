@@ -1,0 +1,23 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "MicroServices Deploy Stage",
+	"longDescription": "The GitHub Service allows you to create or use an existing GitHub repository to store your source code.",
+	"type": "object",
+	"properties": {
+		"repo_name": {
+			"type": "string"
+		},
+		"repo_url": {
+			"type": "string"
+		},
+		"type": {
+			"type": "string"
+		},
+		"has_issues": {
+			"type": "boolean"
+		}
+	},
+	"required": ["repo_name",
+		"repo_url"
+	]
+}

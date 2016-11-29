@@ -3,8 +3,8 @@
 # Note custom schemas are used here to remove the validators for github and pipeline.
 # We're not interested in testing validation.
 #
-name: "Mustache tester"
-description: "Testing ye old mustache"
+name: "Referer tester"
+description: "Testing github referer"
 version: 0.1
 required:
  - deploy
