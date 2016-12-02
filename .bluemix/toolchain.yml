@@ -3,8 +3,8 @@ name: "assert"
 description: "Uses a hacked github validator that returns errors if correct data not sent."
 version: 0.1
 required:
- - repo
  - repohack
+# - repo
 
 repo:
   service_id: githubpublic
