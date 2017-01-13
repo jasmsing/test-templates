@@ -7,3 +7,9 @@ hurray:
   service_id: nbcnbvnx
 whee:
   service_id: ashjaksjgkasjgkas
+
+services:
+  f: null
+
+snorkel: "mystery prop"
+snorkel2: 2
