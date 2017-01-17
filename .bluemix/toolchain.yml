@@ -1,16 +1,61 @@
----
-name: "Build your own toolchain"
-description: "This toolchain has made up service ids that are bogus.\n\nTo get started, click **Create**."
-version: 0.1
-
-hurray:
-  service_id: nbcnbvnx
-whee:
-  service_id: ashjaksjgkasjgkas
-
-services:
-  nully: null
-  flophouse: "jfkskfs"
-
-snorkel: "mystery prop"
-snorkel2: 2
+description: simple-toolchain-1484332328471
+name: simple-toolchain-1484332328471
+sample-build:
+  parameters:
+    configuration:
+      content: "---\nstages:\n- name: BUILD\n  inputs:\n  - type: git\n    branch:
+        master\n    service: ${SAMPLE_REPO}\n  triggers:\n  - type: commit\n  jobs:\n
+        \ - name: Build\n    type: builder\n- name: DEPLOY\n  inputs:\n  - type: job\n
+        \   stage: BUILD\n    job: Build\n  triggers:\n  - type: stage\n  properties:\n
+        \ - name: CF_APP_NAME\n    value: undefined\n    type: text\n  - name: APP_URL\n
+        \   value: undefined\n    type: text\n  jobs:\n  - name: Blue-Green Deploy\n
+        \   type: deployer\n    target:\n      region_id: ${PROD_REGION_ID}\n      organization:
+        ${PROD_ORG_NAME}\n      space: ${PROD_SPACE_NAME}\n      application: ${CF_APP_NAME}\n
+        \   script: |\n      #!/bin/bash\n      # Push app\n      if ! cf app $CF_APP;
+        then  \n        cf push $CF_APP\n      else\n        OLD_CF_APP=${CF_APP}-OLD-$(date
+        +\"%s\")\n        rollback() {\n          set +e  \n          if cf app $OLD_CF_APP;
+        then\n            cf logs $CF_APP --recent\n            cf delete $CF_APP
+        -f\n            cf rename $OLD_CF_APP $CF_APP\n          fi\n          exit
+        1\n        }\n        set -e\n        trap rollback ERR\n        cf rename
+        $CF_APP $OLD_CF_APP\n        cf push $CF_APP\n        cf delete $OLD_CF_APP
+        -f\n      fi\n      # Export app name and URL for use in later Pipeline jobs\n
+        \     export CF_APP_NAME=\"$CF_APP\"\n      export APP_URL=http://$(cf app
+        $CF_APP_NAME | grep urls: | awk '{print $2}')\n      # View logs\n      #cf
+        logs \"${CF_APP}\" --recent\n      \n"
+      env:
+        CF_APP_NAME: simple-toolchain-1484332328471
+        PROD_ORG_NAME: mamacdon@ca.ibm.com
+        PROD_REGION_ID: ibm:ys1:us-south
+        PROD_SPACE_NAME: ash
+        SAMPLE_REPO: sample-repo
+      execute: true
+    name: simple-toolchain-1484332328471
+    services:
+    - sample-repo
+    ui-pipeline: true
+  service_id: pipeline
+sample-repo:
+  parameters:
+    api_root_url: https://api.github.com
+    extra_capabilities:
+    - capability_id: git.issues
+      dashboard_url: https://github.com/mamacdon/simple-toolchain-1484332328471/issues
+      display_name: Issues
+      enabled: true
+      label: simple-toolchain-1484332328471
+      tags:
+      - think
+      - code
+    has_issues: true
+    label: simple-toolchain-1484332328471
+    owner_id: mamacdon
+    repo_name: simple-toolchain-1484332328471
+    repo_url: https://github.com/mamacdon/simple-toolchain-1484332328471.git
+    token_url: https://otc-github-public-broker.stage1.ng.bluemix.net/github/token
+    type: clone
+  service_id: githubpublic
+webide:
+  parameters:
+    dashboard_url: /devops/code/edit/edit.html#,toolchain=7666a209-8560-4f15-a050-64fd33cc6c34
+    toolchain_id: 7666a209-8560-4f15-a050-64fd33cc6c34
+  service_id: orion
