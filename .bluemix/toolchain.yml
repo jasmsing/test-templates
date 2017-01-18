@@ -15,7 +15,8 @@ toolchain:
 
 repo:
   service_id: githubpublic
-  schema: github.json
+  schema:
+    $ref: github.json
   parameters:
     repo_name: "da name, {{repo.parameters.repo_url}}"
     repo_url: "da url"
@@ -23,7 +24,8 @@ repo:
     has_issues: true
 
 build:
-  schema: deploy.json
+  schema:
+    $ref: deploy.json
   service_id: pipeline
   parameters:
     magic:
