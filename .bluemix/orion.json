@@ -1,0 +1,23 @@
+
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Sample Orion",
+     "description": "sample orion",
+    "longDescription": "The orion cool.",
+    "type": "object",
+    "properties": {
+        "container_url": {
+            "title": "Container URL",
+            "description": "Type the URL of an Orion node workspace.",
+            "type": "string",
+            "darklaunch": "orionlsp"
+        }
+    },
+    "form": [{
+              "type": "string",
+              "readonly": false,
+              "title": "App name",
+              "key": "container_url",
+              "darklaunch": "orionlsp"
+            }]
+}

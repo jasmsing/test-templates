@@ -35,9 +35,12 @@ sample-build:
   hidden: [form, description]
     
 
-#Web IDE
+#Web IDE with hacked schema
 webide:
   service_id: orion
+  schema:
+    $ref: orion.json
+  
   
 #Deployment
 deploy:
