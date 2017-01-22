@@ -1,7 +1,8 @@
 ---
-name: "Build your own toolchain"
-description: "This toolchain has made up service ids that are bogus.\n\nTo get started, click **Create**."
-version: 0.1
+version: 2
+template:
+  name: "Build your own toolchain"
+  description: "This toolchain has made up service ids that are bogus.\n\nTo get started, click **Create**."
 
 hurray:
   service_id: nbcnbvnx
