@@ -3,15 +3,18 @@ name: "assert"
 description: "Uses a hacked github validator that returns errors if correct data not sent."
 version: 0.1
 required:
- - repohack
-# - repo
+- repo
+# - repohack
 
 repo:
   service_id: githubpublic
-  hidden: [form, description] # hide the default schema I guess
-
-repohack:
   schema: github.json
-  service-category: githubpublic
   parameters:
     baz: "from parameters :)"
+
+
+# repohack:
+#   schema: github.json
+#   service-category: githubpublic
+#   parameters:
+#     baz: "from parameters :)"
