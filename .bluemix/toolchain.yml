@@ -13,3 +13,6 @@ services:
 
 snorkel: "mystery prop"
 snorkel2: 2
+
+orion:
+  service_id: orion
