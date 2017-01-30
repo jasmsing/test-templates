@@ -1,15 +1,11 @@
 ---
-#
-# Note custom schemas are used here to remove the validators for github and pipeline.
-# We're not interested in testing validation.
-#
 version: 2
 
 template:
   name: "v2 attempt"
   description: "Native v2 format"
   required:
-   - deploy
+   - build
    - repo
 
 toolchain:
@@ -45,9 +41,3 @@ services:
         to-ref: "{{repo.parameters.repo_name}}"
       context:
         fizz: "{{fizz}}"
-
-# TODO test refs inside a service-category
-# deploy:
-#   schema: deploy.json
-#   service-category: pipeline
-#   parameters:
