@@ -4,6 +4,7 @@ version: '2'
 template:
   name: "v2 attempt"
   description: "Native v2 format"
+  header: "Well here is your fancy svg ![ha](toolchain.svg)"
   required:
    - build
    - repo
