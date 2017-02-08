@@ -1,10 +1,12 @@
 ---
 version: '2'
-
+default_locale: en
+locales: 
+  $ref: locales.yml
 template:
   name: "v2 attempt"
   description: "Native v2 format"
-  header: "Well here is your fancy header ![eye candy](my-great-image.png) and now an svg ![ha](toolchain.svg)"
+  header: "Strings below should be localized to gibberish in English: ![ha](toolchain.svg?localize)"
   required:
    - build
    - repo
