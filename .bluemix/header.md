@@ -1,3 +1,1 @@
-![header image](toolchain.svg?localize)
-
-hehehhe
+Strings below should be localized to gibberish in English: ![header image](toolchain.svg?localize)
