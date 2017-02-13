@@ -12,6 +12,8 @@ required:
 
 toolchain:
   name: "initial-name"
+  template:
+    my_custom_field: "abcdef"
 
 repo:
   service_id: githubpublic
