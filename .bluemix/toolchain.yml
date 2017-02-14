@@ -7,6 +7,9 @@ template:
   required:
    - build
    - repo
+  info:
+    git url: "[hahaha sup](https://www.whatever)"
+    git branch: "https://example.org/hurf/durf"
 
 toolchain:
   name: "initial-name"
