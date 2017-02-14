@@ -17,7 +17,7 @@ services:
     schema:
       $ref: github.json
     parameters:
-      repo_name: "da name, {{repo.parameters.repo_url}}"
+      repo_name: "da name, {{services.repo.parameters.repo_url}}"
       repo_url: "da url"
       type: clone
       has_issues: true
@@ -28,7 +28,6 @@ services:
     service_id: pipeline
     parameters:
       magic:
-        baseName: "{{baseName}}"
         description: "{{description}}"
         name: "{{name}}"
         organization: "{{organization}}"
@@ -36,8 +35,8 @@ services:
         space: "{{space}}"
         timestamp: "{{timestamp}}"
       ref:
-        simple: "{{repo.parameters.repo_url}}"
-        expr:   "pre-{{repo.parameters.repo_url}}-post"
-        to-ref: "{{repo.parameters.repo_name}}"
+        simple: "{{services.repo.parameters.repo_url}}"
+        expr:   "pre-{{services.repo.parameters.repo_url}}-post"
+        to-ref: "{{services.repo.parameters.repo_name}}"
       context:
         fizz: "{{fizz}}"
