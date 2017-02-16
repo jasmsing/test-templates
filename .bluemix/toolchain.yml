@@ -34,6 +34,7 @@ build:
       baseName: "{{baseName}}"
       description: "{{description}}"
       name: "{{name}}"
+      toolchain_name: "{{toolchain.name}}"
       organization: "{{organization}}"
       region: "{{region}}"
       space: "{{space}}"
