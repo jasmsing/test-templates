@@ -4,7 +4,9 @@ version: '2'
 template:
   name: "v2 attempt"
   description: "Native v2 format"
-  header: "Well here is your fancy header ![eye candy](my-great-image.png) and now an svg ![ha](toolchain.svg)"
+  header:
+    - "this header"
+    - is bad
   required:
    - build
    - repo
