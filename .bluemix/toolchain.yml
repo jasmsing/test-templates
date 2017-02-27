@@ -7,5 +7,11 @@ description: "This toolchain has no preconfigured tools. If you are already fami
 version: 0.1
 this:
  - is an
-- array with bad indentation
-hello: "Im a string"
+ - array
+my-great-service:
+service_id: fizbzuzz
+  parameters:
+   repo_name: "micro1-{{name}}"
+   repo_url: "https://whatever"
+   type: "clone"
+has_issues: false
