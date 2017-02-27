@@ -6,6 +6,6 @@ name: "Build your own toolchain"
 description: "This toolchain has no preconfigured tools. If you are already familiar with toolchains, you can set up your own toolchain.\n\nTo get started, click **Create**."
 version: 0.1
 this:
-  -is a badly indented
--map
-hello: "Im a string but without a close quote
+ - is an
+- array with bad indentation
+hello: "Im a string"
