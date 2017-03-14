@@ -41,6 +41,7 @@ webide:
   
 #Deployment
 deploy:
+  # INVALID JSON FILE
   schema: deploy.json
   service-category: pipeline
   parameters:
