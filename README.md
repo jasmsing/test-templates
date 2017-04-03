@@ -1,3 +1,3 @@
-# v2_minimal
+# jsonschema 
 
-smallest template ever
+using real JSON schema
