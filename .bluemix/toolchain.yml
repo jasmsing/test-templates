@@ -10,6 +10,8 @@ required:
 sample-repo:
   service_id: githubpublic
   hidden: [form, description] # hide the default schema I guess
+  parameters:
+    type: "clone"
 
 #Override githubpublic schema with the validator
 deploy:
