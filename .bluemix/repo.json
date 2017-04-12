@@ -33,7 +33,7 @@
     },
     "form": [{
         "type": "validator",
-        "url": "https://mamacdon.github.io/toolchain-templates/validator_auth/helper.html"
+        "url": "https://mamacdon.github.io/toolchain-templates/validator_auth/helper.html#lifetime={{lifetime}}"
     }, {
         "type": "selectfieldset",
         "key": "type",
