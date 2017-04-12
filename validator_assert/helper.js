@@ -54,10 +54,14 @@ function receiveMessage(event) {
 			// Initial populate, every field has its default value
 			fail = fail || assertValues(event, props, { foo: "", bar: "honk" });
 		} else if (populateCount === 2) {
-			// Populate after edit, values are set by the 'user'
-			fail = fail || assertValues(event, props, { foo: "foo2", bar: "honk2" });
+			// Populate after user edit to 'foo' field
+			fail = fail || assertValues(event, props, { foo: "foo2", bar: "honk" });
 			fail = fail || assertChanged(event, props.foo);
-		}
+		} /*else if (populateCount === 3) {
+			// Populate after user edit to 'bar' field
+			fail = fail || assertValues(event, props, { foo: "foo2", bar: "honk2" });
+			fail = fail || assertChanged(event, props.bar);
+		}*/
 		if (fail) {
 			return;
 		}
