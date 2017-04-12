@@ -1,4 +1,9 @@
 /*eslint-env browser*/
+// `lifetime` is the duration in ms that auth will persist in localStorage.
+// Default is 2000ms
+var match = /#lifetime=(\d+)/.exec(window.location.hash);
+var lifetime = match ? Number(match[1]) : 2000;
+
 function consoleLog(msg) {
 	if (window && window.debug_level) {
 		console.log(msg);
@@ -22,10 +27,10 @@ function respond(event, response, str) {
 	return response;
 }
 
-// If the user didn't authorize within the last 2 seconds, then they need to auth again
+// If the user didn't authorize within the last N seconds, then they need to auth again
 function needsAuth() {
 	var authTimestamp = new Date(Number(localStorage.getItem("fake.auth.time"))); // new Date(0) if never authorized
-	return (Date.now() - authTimestamp) > 2000;
+	return (Date.now() - authTimestamp) > lifetime;
 }
 
 function receiveMessage(event) {
@@ -38,7 +43,7 @@ function receiveMessage(event) {
 				respond(event, {
 					description: "User needs to authorize",
 					statusCode: 401,
-					authorizationURI: resolveURL("./return.html"),
+					authorizationURI: resolveURL("./return.html#lifetime=" + lifetime),
 				}, "github.requestAuth Rx: ");
 			} else {
 				respond(event, {
