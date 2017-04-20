@@ -1,48 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-/*eslint-env browser*/
-var match = /#lifetime=(\d+)/.exec(window.location.hash);
-var lifetime = match ? Number(match[1]) : 2000;
-
-var msg = {
-	"request": "oauth-return",
-	"response": true
-};
-if (window.parent) {
-	// console.log("Returned from OAuth: " + window.opener.location);
-	setTimeout(function() {
-		if (!window.opener) {
-			console.error("No window.opener - not opened as a popup?");
-			return;
-		}
-		window.opener.postMessage(msg, "*");
-
-		// set the auth timestamp in local storage for this domain
-		localStorage.setItem("fake.auth.time", Date.now());
-	}, lifetime)
-}
-
-function receiveMessage(event) {
-	console.log("data: " + JSON.stringify(event.data) + "\norigin: " + event.origin);
-	if (event.data) {
-		if (event.data.request === 'close') {
-			window.opener.focus();
-			window.close();
-		}
-	}
-}
-
-window.addEventListener("message", receiveMessage, false);
-</script>
+	<script src='./return.js'></script>
 	<title>OAuth return</title>
 </head>
 <body>
 <p>Fake OAuth return page.</p>
 
 <ol>
-<li>Wait N seconds (default is N = 2 however this can be overridden by hash parameter <tt>#lifetime=2000</tt>)</li>
+<li>Wait N milliseconds (default is N = 2000 however this can be overridden by hash parameter <tt>#popupStayOpen=2000</tt>)</li>
 <li>Set an auth property <tt>fake.auth.time</tt> in <tt>localStorage</tt>.</li>
 <li>Send an 'oauth-return' message back to the parent window.</li>
 <li>When parent window responds with a 'close' message, this window closes itself.</p>

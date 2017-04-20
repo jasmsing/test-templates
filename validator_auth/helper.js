@@ -1,8 +1,25 @@
 /*eslint-env browser*/
-// `lifetime` is the duration in ms that auth will persist in localStorage.
+/*eslint-disable no-console*/
+
+// `authExpiry` is the duration in ms that localStorage auth is considered fresh for.
+// If auth is older than Date.now() + authExpiry we consider it expired.
 // Default is 2000ms
-var match = /#lifetime=(\d+)/.exec(window.location.hash);
-var lifetime = match ? Number(match[1]) : 2000;
+var authExpiry;
+
+// `popupStayOpen` is the duration in ms that the `authorizationURI` by this helper
+//  will remain open before posting its close message to the parent.
+// Default is 2000ms
+var popupStayOpen;
+
+function readParams() {
+	var match;
+
+	match = /authExpiry=(\d+)/i.exec(window.location.hash);
+	authExpiry = match ? Number(match[1]) : 2000;
+
+	match = /popupStayOpen=(\d+)/i.exec(window.location.hash);
+	popupStayOpen = match ? Number(match[1]) : 2000;
+}
 
 function consoleLog(msg) {
 	if (window && window.debug_level) {
@@ -30,7 +47,7 @@ function respond(event, response, str) {
 // If the user didn't authorize within the last N seconds, then they need to auth again
 function needsAuth() {
 	var authTimestamp = new Date(Number(localStorage.getItem("fake.auth.time"))); // new Date(0) if never authorized
-	return (Date.now() - authTimestamp) > lifetime;
+	return (Date.now() - authTimestamp) > authExpiry;
 }
 
 function receiveMessage(event) {
@@ -43,7 +60,7 @@ function receiveMessage(event) {
 				respond(event, {
 					description: "User needs to authorize",
 					statusCode: 401,
-					authorizationURI: resolveURL("./return.html#lifetime=" + lifetime),
+					authorizationURI: resolveURL("./return.html#popupStayOpen=" + popupStayOpen),
 				}, "github.requestAuth Rx: ");
 			} else {
 				respond(event, {
@@ -66,4 +83,6 @@ function receiveMessage(event) {
 	}
 }
 
+// main
+readParams();
 window.addEventListener("message", receiveMessage, false);
