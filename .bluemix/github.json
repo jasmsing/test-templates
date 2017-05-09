@@ -27,7 +27,7 @@
     "form": [
         {
             "type": "validator",
-            "url": "https://mamacdon.github.io/toolchain-templates/validator_assert/helper.html"
+            "url": "https://open-toolchain.github.io/test-templates/validator_assert/helper.html"
         },
         {
             "key": "foo"
