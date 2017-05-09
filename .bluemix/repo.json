@@ -33,7 +33,7 @@
     },
     "form": [{
         "type": "validator",
-        "url": "https://mamacdon.github.io/toolchain-templates/validator_auth/helper.html"
+        "url": "https://open-toolchain.github.io/test-templates/validator_auth/helper.html"
     }, {
         "type": "selectfieldset",
         "key": "type",
