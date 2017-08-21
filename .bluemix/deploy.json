@@ -20,8 +20,7 @@
         },
         "prod-app-name": {
             "description": "App name, must have odd # of characters",
-            "type": "string",
-            "pattern": "^.(?:..)*$"
+            "type": "string"
         }
     },
     "required": [
