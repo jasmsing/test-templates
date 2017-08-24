@@ -20,7 +20,9 @@
         },
         "prod-app-name": {
             "description": "App name, must have odd # of characters",
-            "type": "string"
+            "type": "string",
+            "maxLength": 63,
+            "invalidMessage": "The maximum length of the app name is 63 characters."
         }
     },
     "required": [
@@ -30,6 +32,10 @@
         "prod-app-name"
     ],
     "form": [
+        {
+            "type": "validator",
+            "url": "/devops/setup/bm-helper/helper.html"
+        },
         {
             "type": "text",
             "readonly": false,
